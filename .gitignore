@@ -1,0 +1,9 @@
+*.log
+*.pot
+*.pyc
+__pycache__/
+blog/migrations
+media
+.DS_Store
+.env
+settings.py

@@ -1,0 +1,19 @@
+{% extends 'blog/index.html' %}
+
+{% block post_page  %}
+    <div class="postpage">
+        <section>
+            <h1>{{post.title}}</h1>
+            <p>{{post.text}}</p>
+            <a class="postpage-button" type="button" href="{%url 'posts_url' %}">Назад</a>
+        </section>
+        <aside>
+            <!-- Profi.ru widget start -->
+            <div class="profi-widget" data-id="4c22b222df0efdac1c574fca82cc2aac" data-type="210x190">
+            Powered by <a href="https://profi.ru/profile/LitvinPK">Profi.ru</a>
+            </div>
+            <script src="https://profi.ru/jqs/widget/widget.js"></script>
+            <!-- Profi.ru widget end -->
+        </aside>
+    </div>
+{% endblock%}

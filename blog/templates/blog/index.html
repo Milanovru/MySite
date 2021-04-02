@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static%}
+<html lang="en">
+<head>
+        <!--load style-->
+    <link rel="stylesheet/less" type="text/css" href="{% static "styles.less" %}">
+    <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
+        <!--    -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='author' content='Pavel Milanov'>
+    <meta name='description' content='web-разработчик на Python, Django'>
+    <title>Milanov web programming</title>
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <a class="navbar-link" href="{%url 'hello_url' %}">Home</a>
+            <a class="navbar-link" href="{%url 'posts_url' %}">Portfolio</a>
+            <a class="navbar-link" href="#">About</a>
+            <a class="navbar-link" href="https://github.com/Milanovru" target="_blank"><img src="{% static "images/github.svg" %}" width="25" height="25" alt="иконка github"></a>
+            <a class="navbar-link" href="https://www.instagram.com/milanov_web_programming/" target="_blank"><img src="{% static "images/instagram.svg" %}" width="25" height="25" alt="иконка instagram"></a>
+            <a class="navbar-link" href="https://t.me/Roso_Milanov" target="_blank"><img src="{% static "images/telegram.svg" %}" width="25" height="25" alt="иконка telegram"></a>
+        </div>
+    </header>
+    <main>
+        <input class="change-theme" type="image" src="{% static "images/dark.svg" %}">
+        {% block main %}
+        {% endblock %}
+
+        {% block portfolio %}
+        {% endblock %}
+
+        {% block post_page %}
+        {% endblock %}
+    </main>
+    <footer>
+        <div class="copyright">
+        <p>© Milanov web programming</p>
+        </div>
+    </footer>
+    <script src={% static "script.js" %}></script>
+</body>
+</html>

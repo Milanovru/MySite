@@ -1,0 +1,23 @@
+{% extends 'blog/index.html' %}
+
+{% block portfolio %}
+
+    <div class="portfolio">
+        
+        {% for post in posts%}
+
+            <div class="portfolio-card">
+                <!--Вывод картинки, не забыть про .url-->
+                <img src="{{post.preview.url}}" alt="здесь будет картинка">
+                <div class="card-text">
+                    <h4>{{post.title}}</h4>
+                    <p>{{post.date}}</p>
+                    <a class="card-button" type="button" href="{{post.get_absolute_url}}">Читать полностью</a>
+                </div>
+            </div>
+
+        {% endfor %}
+        
+    </div> 
+
+{% endblock %}
