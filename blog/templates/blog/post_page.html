@@ -4,7 +4,7 @@
     <div class="postpage">
         <section>
             <h1>{{post.title}}</h1>
-            <p>{{post.text}}</p>
+            <p>{{post.text | urlize}}</p> {% comment %} urlize - распознает ссылки и эмейл-адреса {% endcomment %}
             <a class="postpage-button" type="button" href="{%url 'posts_url' %}">Назад</a>
         </section>
         <aside>
