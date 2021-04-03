@@ -6,4 +6,3 @@ blog/migrations
 media
 .DS_Store
 .env
-settings.py
