@@ -17,7 +17,7 @@ class Post(models.Model):
         return '{} - {}'.format(self.pk, self.title)
 
     def get_absolute_url(self):
-        return reverse("post_id_url", kwargs={"id": self.pk})
+        return reverse("post_id_url", kwargs={"pk": self.pk})
 
 # удаление медиафайлов при удалении поста
 @receiver(pre_delete, sender=Post)
