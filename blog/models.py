@@ -7,7 +7,6 @@ from django.dispatch.dispatcher import receiver
 
 # Create your models here.
 class Post(models.Model):
-    id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     # указываем куда именно сохранять картинки для корректного отображения. "media/post_images"
     preview = models.FileField(upload_to='post_images', blank=True)
@@ -15,10 +14,10 @@ class Post(models.Model):
     text = models.TextField()
 
     def __str__(self):
-        return '{} - {}'.format(self.id, self.title)
+        return '{} - {}'.format(self.pk, self.title)
 
     def get_absolute_url(self):
-        return reverse("post_id_url", kwargs={"id": self.id})
+        return reverse("post_id_url", kwargs={"id": self.pk})
 
 # удаление медиафайлов при удалении поста
 @receiver(pre_delete, sender=Post)

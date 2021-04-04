@@ -16,8 +16,8 @@ class Portfolio(View):
 
 
 class Posts_id(View):
-    def get(self, request, id):
-        id = Post.objects.get(id=id)
+    def get(self, request, pk):
+        id = Post.objects.get(pk=id)
         return render(request, 'blog/post_page.html', context={'post': id}) # элемент в цикле
 
 
