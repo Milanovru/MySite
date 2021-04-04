@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils import timezone
 from django.shortcuts import reverse
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
 
 
 # Create your models here.
@@ -17,4 +19,9 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("post_id_url", kwargs={"id": self.id})
-    
+
+# удаление медиафайлов при удалении поста
+@receiver(pre_delete, sender=Post)
+def preview_delete(sender, instance, **kwargs):
+    if instance.preview.name:
+        instance.preview.delete(False)
