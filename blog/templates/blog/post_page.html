@@ -4,7 +4,7 @@
     <div class="postpage">
         <section>
             <h1>{{post.title}}</h1>
-            <p>{{post.text | urlize | linebreaks}}</p> {% comment %} urlize - распознает ссылки и эмейл-адреса, linebreaksbr - сохраняет все пробелы {% endcomment %}
+            <p>{{post.text | safe}}</p> {% comment %} safe - для корректного отображения ckeditora {% endcomment %}
             <a class="postpage-button" type="button" href="{%url 'posts_url' %}">Назад</a>
         </section>
         <aside>
