@@ -15,5 +15,9 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
+    list_display = ('pk', 'title', 'date')
+    order = ('pk')
+    date_hierarchy = 'date'
+
 
 admin.site.register(Post, PostAdmin)

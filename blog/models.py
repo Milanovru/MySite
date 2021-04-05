@@ -13,12 +13,16 @@ class Post(models.Model):
     date = models.DateTimeField(default=timezone.now)
     text = models.TextField()
 
+    class Meta:
+        ordering = ('pk',)
+
     def __str__(self):
         return '{} - {}'.format(self.pk, self.title)
 
     def get_absolute_url(self):
         return reverse("post_id_url", kwargs={"pk": self.pk})
-
+    
+    
 # удаление медиафайлов при удалении поста
 @receiver(pre_delete, sender=Post)
 def preview_delete(sender, instance, **kwargs):
